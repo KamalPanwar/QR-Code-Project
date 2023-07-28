@@ -17,6 +17,10 @@ inquirer
     const Url = answers.Url;
     var qr_svg = qr.image(Url);
     qr_svg.pipe(fs.createWriteStream("r_image.png"));
+    fs.writeFile('URL.txt', Url, (err) => {
+        if (err) throw err;
+        console.log('The file has been saved!');
+      });
    
   })
   .catch((error) => {
